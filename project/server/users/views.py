@@ -12,6 +12,7 @@ class UsersAPI(MethodView):
     """
     User Index Resource
     """
+    #get method
     def get(self):
         user = User.query.all()
         listUsers = []
