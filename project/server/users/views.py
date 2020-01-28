@@ -13,8 +13,12 @@ class UsersAPI(MethodView):
     User Index Resource
     """
     def get(self):
-        user = User.query.order_by(User.email).all()
-        return make_response(jsonify(user)), 201
+        user = User.query.all()
+        listUsers = []
+        for i in user:
+            listUsers.append(i.email)
+        
+        return make_response(jsonify(listUsers)), 201
 # define the API resources
 users_view = UsersAPI.as_view('users_api')
 
